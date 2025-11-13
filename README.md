@@ -1,6 +1,8 @@
 # VNA Cheatsheet
 Machete con diversas cosas que se pueden medir con un VNA (Analizador de Redes Vectorial), como el [NanoVNA](https://nanovna.com/) o sus clones.
 
+Este documento no pretende ser una guía completa de uso del VNA, sino un resumen rápido de las mediciones más comunes que se pueden hacer con este instrumento.
+
 Por LU6CGA (gzalo), si encontrás algún error o mejora podés crear un _pull request_ para agregarlo a la lista.
 
 - [VNA Cheatsheet](#vna-cheatsheet)
@@ -49,9 +51,22 @@ Cuando se usan cables o adaptadores adicionales en las mediciones, es necesario 
 
 # Mediciones usando S11
 ## Impedancia de entrada de un equipo/filtro
-(completar)
+
+1. Conectar el equipo o filtro al puerto 1 del VNA y medir S11 para el rango de frecuencias de interés.
+2. Usando los distintos formatos de visualización (Smith chart, polar, etc.) se puede obtener la impedancia de entrada del equipo o filtro en función de la frecuencia.
+
+Recordar que el VNA es más preciso cuando la impedancia está cerca de la impedancia característica del VNA, cuando $|Z| \approx 50\ \Omega$.
+
+También es muy importante recordar que la potencia de salida del VNA (-20 a 0 dBm dependiendo del modelo, también varía en función de la frecuencia) puede llegar a modificar el comportamiento del equipo o filtro medido. En esos casos, es recomendable usar atenuadores en la entrada del equipo para reducir la potencia de la señal de entrada, o cambiar el valor de potencia de salida del VNA si es posible. Los atenuadores pueden ser incluidos en la calibración para excluirlos de las mediciones.
+
 ## Impedancia de salida
-(completar)
+
+Si es un equipo activo, no es fácil de medir con un VNA, porque solo pueden medir respuestas a sus propios estímulos. [Este artículo de NXP provee más datos](https://www.nxp.com/docs/en/application-note/AN1526.pdf) de cómo realizarlo bien.
+
+Recordar que un error pensar que la impedancia interna será de $50 \ \Omega$ si es un dispositivo pensado para conectarle una carga de $50 \ \Omega$.
+
+En algunos amplificadores transistorizados se puede medir la potencia de salida y usar una fórmula para estimar la impedancia de salida: $Zo \approx \frac{V_{cc}-V_{CE(sat)}^2}{2 P_o}$
+
 ## Inductores 
 (completar)
 ## Capacitores
