@@ -1,0 +1,17 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[siunitx]{circuitikz}
+\begin{document}
+\begin{circuitikz}
+  \node at (0.675,-0.275) {\footnotesize VNA};
+  \node[align=center] at (0.675,-0.9) {\scriptsize puerto 1};
+
+  \draw (1.375,-0.25) to[tline] (2.875,-0.25);
+    (1.35,-.2) to[tline] (2.9,-.2);
+  \node[above] at (2.45,-.2) {\scriptsize };
+  \draw (1.375,-1) -| (1.875,-0.5);
+  \draw (2.875,0.125) rectangle (3.625,-1.25);
+  \draw (2.375,-0.5) -- (2.375,-1) -- (2.875,-1);
+  \node at (5.5,-0.625) {Dispositivo a probar};
+  \draw (0,0.25) rectangle (1.375,-1.5);
+\end{circuitikz}
+\end{document}

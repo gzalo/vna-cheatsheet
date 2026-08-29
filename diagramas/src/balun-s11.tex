@@ -1,0 +1,16 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[siunitx]{circuitikz}
+\begin{document}
+\begin{circuitikz}
+  \node[align=center] at (.675,-.7) {\footnotesize VNA\\\scriptsize puerto 1};
+  \node[align=center] at (4.45,-0.6) {\footnotesize balun\\\scriptsize / unun};
+  \draw
+    (1.375,-0.25) to[tline] (3.75,-0.25)
+    (5.125,0.125) to[short] (6,0.125)
+  \draw (2.75,-0.5) -- (2.75,-1.125) -- (3.75,-1.125);
+  \draw (6,0.125) to[R, label=$Z_{bal}$] (6,-1.25) -- (5.125,-1.25);
+  \draw (0,0.125) rectangle (1.375,-1.375);
+  \draw (3.75,0.25) rectangle (5.125,-1.5);
+  \draw (1.375,-1.125) -| (2.375,-0.5);
+\end{circuitikz}
+\end{document}

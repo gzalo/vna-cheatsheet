@@ -1,0 +1,22 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[siunitx]{circuitikz}
+\begin{document}
+\begin{circuitikz}
+  \node[align=center] at (.675,-.7) {\footnotesize VNA\\\scriptsize puerto 1};
+  \node[align=center] at (7.925,-.7) {\footnotesize VNA\\\scriptsize puerto 2};
+
+
+  \draw[densely dashed] (3.15,.15) -- (3.15,-1.5);
+  \draw[densely dashed] (5.45,.15) -- (5.45,-1.5);
+  \node[below] at (4.3,-1.6) {\scriptsize planos de calibraci\'on};
+  \draw (4.625,-0.5) -- (4.625,-0.75) -| (6.125,-0.5);
+  \draw (1.375,-1.375) -| (2,-0.5);
+  \draw (7.25,-1.375) -| (6.5,-0.5);
+  \draw (2.25,-0.5) -- (2.25,-0.75) -- (3.875,-0.75) -- (3.875,-0.5);
+  \draw (0,0) rectangle (1.375,-1.625);
+  \draw (8.625,-1.625) rectangle (7.25,0);
+  \draw (1.375,-0.25) to[tline] (3.125,-0.25) to[generic] (5.375,-0.25);
+  \draw (5.375,-0.25) to[tline] (7.25,-0.25);
+  \node at (4.25,0.375) {Filtro pasivo};
+\end{circuitikz}
+\end{document}

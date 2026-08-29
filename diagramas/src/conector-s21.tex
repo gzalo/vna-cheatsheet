@@ -1,0 +1,18 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[siunitx]{circuitikz}
+\begin{document}
+\begin{circuitikz}
+  \node[align=center] at (.675,-.7) {\footnotesize VNA\\\scriptsize puerto 1};
+  \node[align=center] at (7.925,-.7) {\footnotesize VNA\\\scriptsize puerto 2};
+  \node at (4.3,-.65) {\footnotesize Adaptador};
+  \draw (1.375,-0.125) to[tline] (3.375,-0.125);
+  \draw (5.25,-0.125) to[tline] (7.25,-0.125);
+  \draw (1.375,-1.125) -| (2.125,-0.375);
+  \draw (2.5,-0.375) -- (2.5,-1.125) -- (3.375,-1.125);
+  \draw (5.25,-1.125) -| (6,-0.375);
+  \draw (6.375,-0.375) -- (6.375,-1.125) -- (7.25,-1.125);
+  \draw (0,0) rectangle (1.375,-1.375);
+  \draw (3.375,0.125) rectangle (5.25,-1.5);
+  \draw (7.25,0) rectangle (8.625,-1.375);
+\end{circuitikz}
+\end{document}

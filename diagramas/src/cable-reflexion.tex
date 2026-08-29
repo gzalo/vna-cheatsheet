@@ -1,0 +1,13 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage[siunitx]{circuitikz}
+\begin{document}
+\begin{circuitikz}
+  \node[align=center] at (.675,-.7) {\footnotesize VNA\\\scriptsize puerto 1};
+  \draw
+    (1.375,-0.25) to[tline, l=\scriptsize cable bajo prueba] (4.75,-0.25)
+    (4.75,-.2) to[open,l={\scriptsize abierto o corto}] (4.75,-1.15);
+  \draw (1.375,-1.125) -| (2.875,-0.5);
+  \draw (3.25,-0.5) -- (3.25,-1.125) -- (4.75,-1.125);
+  \draw (0,0) rectangle (1.375,-1.375);
+\end{circuitikz}
+\end{document}

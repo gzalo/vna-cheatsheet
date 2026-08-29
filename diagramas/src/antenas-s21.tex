@@ -1,0 +1,24 @@
+\documentclass[tikz,border=2pt]{standalone}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{siunitx}
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+\usepackage{tikz}
+\usepackage[siunitx]{circuitikz}
+\begin{document}
+\begin{circuitikz}
+  \draw (0,.3) rectangle (1.25,-1.55);
+  \node[align=center] at (.625,-.65) {\footnotesize VNA\\\scriptsize puerto 1};
+  \draw (9.35,0.3) rectangle (10.6,-1.55);
+  \node[align=center] at (9.975,-0.65) {\footnotesize VNA\\\scriptsize puerto 2};
+  \draw
+    (1.25,-0.25) to[tline] (3,-0.25)
+    (7.625,-0.25) to[tline] (9.375,-0.25);
+  \node[txantenna] at (3,-0.25) {};
+  \node[rxantenna, xscale=-1] at (7.625,-0.25) {};
+  \draw (1.25,-1.125) -| (2,-0.5);
+  \draw (9.375,-1.125) -| (8.375,-0.5);
+\end{circuitikz}
+\end{document}
