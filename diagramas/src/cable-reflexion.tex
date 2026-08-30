@@ -4,10 +4,12 @@
 \begin{circuitikz}
   \node[align=center] at (.675,-.7) {\footnotesize VNA\\\scriptsize puerto 1};
   \draw
-    (1.375,-0.25) to[tline, l=\scriptsize cable bajo prueba] (4.75,-0.25)
-    (4.75,-.2) to[open,l={\scriptsize abierto o corto}] (4.75,-1.15);
-  \draw (1.375,-1.125) -| (2.875,-0.5);
-  \draw (3.25,-0.5) -- (3.25,-1.125) -- (4.75,-1.125);
+    (1.375,-0.25) to[tline, l=\scriptsize Cable bajo prueba, xscale=] (4.375,-0.25);
+  \draw (1.375,-1.125) -| (2.625,-0.5);
+  \draw (3.25,-0.375) -- (4.375,-0.375) -- (4,-0.375);
   \draw (0,0) rectangle (1.375,-1.375);
+    \draw[densely dashed] (2.125,0) -- (2.125,-1.5);
+  \node[below] at (1.75,-1.625) {\scriptsize Plano de calibraci\'on};
+  \node[scale=0.7] at (5.5,-0.375) {Abierto o en corto};
 \end{circuitikz}
 \end{document}

@@ -10,7 +10,7 @@ Conectar el equipo o filtro al puerto 1 y medir S11 para el rango de frecuencias
 <img alt="Esquema CircuitikZ: medición de impedancia S11" src="diagramas/rendered/s11-impedancia.svg" width="50%"/>
 </p>
 
-Recordar que esta medición es más precisa cuando el dispositivo está cerca de la impedancia característica del VNA, es decir, $Z\approx50\ \Omega$. 
+Recordar que esta medición es más precisa cuando el dispositivo está cerca de la impedancia característica del VNA, es decir, $Z\approx50\ \Omega$. Conviene ubicar el plano de calibración lo más cercano al dispositivo. Por ejemplo, si el mismo posee un conector SMA hembra, conviene utilizar calibraciones con estándares SMA hembra y no agregar adaptadores.
 
 También es muy importante recordar que la potencia de salida del VNA (-20 a 0 dBm dependiendo del modelo) puede llegar a modificar el comportamiento del equipo o filtro medido. En esos casos, es recomendable reducir el nivel de salida o incluir un atenuador antes del dispositivo. 
 
@@ -18,14 +18,14 @@ Recordar no conectar al VNA un circuito con tensiones continuas (ej, un filtro c
 
 ## Inductores
 ### Midiendo S11 directamente
-Conectar el inductor al puerto 1 usando un _fixture_ (pueden ser unas puntas tipo cocodrilo, lo más corto posible) y medir la impedancia serie en una frecuencia de interés. Por debajo de la frecuencia de autorresonancia, se puede estimar:
+Conectar el inductor al puerto 1 usando un _fixture_ (puede ser un PCB con un conector SMA hembra, minimizando los largos de los cables y patas del inductor) y medir la impedancia serie en una frecuencia de interés. Por debajo de la frecuencia de autorresonancia, se puede estimar:
 
 $$L=\frac{X}{2\pi f}$$
 
 La mayoría de los equipos ya muestran el valor de $L$ directamente. La parte real $R$ permite estimar las pérdidas del inductor y, también aproximar $Q \approx X/R$.
 
 ### Haciéndolo resonar con un capacitor conocido
-Conectar el inductor en serie con un capacitor de valor conocido y buscar la frecuencia de resonancia $f_r$ en S11. Esta se obtiene buscando el mínimo de la magnitud de S11, o el punto donde la fase cruza por cero.
+En un _fixture_, conectar el inductor en serie con un capacitor de valor conocido y buscar la frecuencia de resonancia $f_r$ en S11. Esta se obtiene buscando el mínimo de la magnitud de S11, o el punto donde la fase (_Z phase_) cruza por cero.
 
 Ignorando el comportamiento parásito, usando esa frecuencia se puede estimar:
 
@@ -123,4 +123,6 @@ Calibrar sin incluir el conector o adaptador a caracterizar, luego agregarlo y m
 <img alt="Esquema CircuitikZ: conector o adaptador medido directamente en S21" src="diagramas/rendered/conector-s21.svg" width="50%"/>
 </p>
 
-Esto permite detectar conectores gastados, falsos contactos y adaptadores que introducen reflexión o pérdida excesiva.
+Debido a la naturaleza de la medición, puede que sea necesario incluir un adaptador adicional cuando se realiza la calibración through, para que el plano de referencia quede lo más cerca del conector a caracterizar. Por eso es necesario tener un adaptador de calidad para calibrar (distinto del que se quiere medir).
+
+Esta medición permite detectar conectores gastados, falsos contactos y adaptadores que introducen reflexión o pérdida excesiva, así como poder ver hasta qué frecuencia se pueden usar.

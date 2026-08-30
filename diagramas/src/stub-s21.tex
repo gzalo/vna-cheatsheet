@@ -9,15 +9,18 @@
     (1.375,-0.25) to[tline] (3.5,-0.25)
     to[short] (4.25,-.25)
     to[tline] (7.25,-.25)
-    (4.25,-0.25) to[tline, l=\scriptsize stub en paralelo] (4.25,1.875)
+    (4.25,-0.25) to[tline, l=\scriptsize Stub en paralelo] (4.25,1.875)
     to[short] (4.25,2.1);
-  \node[above] at (4.2,2.125) {\scriptsize abierto o corto};
-  \draw (4.5,1) -| (4.625,2.125);
+  \node[above] at (4.2,2.125) {\scriptsize Abierto o en corto};
+  \draw (4.375,1.125) -| (4.375,2.125);
   \draw (1.375,-1.125) -| (2.125,-0.5);
   \draw (7.25,-1.125) -| (5.875,-0.5);
   \draw (2.75,-0.375) -- (5.375,-0.375);
   \draw (4.375,-0.375) -- (4.375,0.375);
   \draw (0,0) rectangle (1.375,-1.25);
   \draw (7.25,0) rectangle (8.625,-1.25);
+  \draw[densely dashed] (3.025,0.525) -- (3.025,-1.125);
+  \draw[densely dashed] (5.125,0.5) -- (5.125,-1.125);
+  \node[below] at (4.125,-1.25) {\scriptsize Planos de calibraci\'on};
 \end{circuitikz}
 \end{document}

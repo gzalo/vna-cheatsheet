@@ -59,9 +59,9 @@ Es sumamente importante calibrar el VNA antes de hacer mediciones para obtener r
 
 Es necesario usar estándares de calibración de buena calidad para obtener resultados precisos. Es altamente recomendado [conseguir o fabricar un kit casero con conectores SMA hembra](https://www.qsl.net/in3otd/electronics/VNA_calkit/SMA_female.html), ya que en muchos casos los nanoVNA vienen con estándares macho, lo que requiere agregar adaptadores y generan un error adicional en las mediciones.
 
-**Si cambiamos el rango de frecuencias, es necesario recalibrar.** En la mayoría de los casos tiene más sentido recalibrar que guardar la calibración anterior y usarla en otro momento, ya que la calibración podría variar con la temperatura y otros factores.
+**Si cambiamos el rango de frecuencias, es necesario recalibrar.** En la mayoría de los casos tiene más sentido recalibrar que guardar la calibración anterior y usarla en otro momento, ya que la calibración podría variar con la temperatura y otros factores. 
 
-Cuando se usan cables o adaptadores adicionales en las mediciones, es necesario incluirlos en la calibración, de lo contrario se termina midiendo también la respuesta de esos elementos, lo que puede introducir errores significativos.
+Cuando se usan cables o adaptadores adicionales en las mediciones, es necesario incluirlos en la calibración. De lo contrario se termina midiendo también la respuesta incluyendo a dichos elementos, lo que puede introducir errores no desados. En los diagramas se muestra el mejor "plano/planos de referencia" para realizar la calibración.
 
 ### Offset delay
 
