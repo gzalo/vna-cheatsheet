@@ -22,11 +22,15 @@ Conectar el equipo o filtro al puerto 1 y medir S11 para el rango de frecuencias
 <img alt="Esquema CircuitikZ: medición de impedancia S11" src="diagramas/rendered/s11-impedancia.svg" width="50%"/>
 </p>
 
+<p align="center" width="100%">
+<img alt="Foto: midiendo impedancia de entrada" src="fotos/s11-impedancia.jpg" width="80%" style="border: 1px solid black;"/>
+</p>
+
 Recordar que esta medición es más precisa cuando el dispositivo está cerca de la impedancia característica del VNA, es decir, $Z\approx50\ \Omega$. Conviene ubicar el plano de calibración lo más cercano al dispositivo. Por ejemplo, si el mismo posee un conector SMA hembra, conviene utilizar calibraciones con estándares SMA hembra y no agregar adaptadores.
 
 También es muy importante recordar que la potencia de salida del VNA (-20 a 0 dBm dependiendo del modelo) puede llegar a modificar el comportamiento del equipo o filtro medido. En esos casos, es recomendable reducir el nivel de salida o incluir un atenuador antes del dispositivo. 
 
-Recordar no conectar al VNA un circuito con tensiones continuas (ej, un filtro con bias tee), o algo que esté transmitiendo potencia sin las protecciones adecuadas. Internamente el VNA tiene una terminación de 50 ohms que soporta muy baja potencia.
+Recordar no conectar al VNA un circuito que exponga tensiones continuas en el puerto de medición (por ejemplo, un filtro con bias tee), o algo que esté transmitiendo potencia. Internamente el VNA tiene una terminación de 50 ohms que soporta muy baja potencia.
 
 ## Inductores
 ### Midiendo S11 directamente
@@ -35,6 +39,18 @@ Conectar el inductor al puerto 1 usando un _fixture_ (puede ser un PCB con un co
 $$L=\frac{X}{2\pi f}$$
 
 La mayoría de los equipos ya muestran el valor de $L$ directamente. La parte real $R$ permite estimar las pérdidas del inductor y, también aproximar $Q \approx X/R$.
+
+<p align="center" width="100%">
+<img alt="Foto: midiendo inductor" src="fotos/l-directo.jpg" width="80%" style="border: 1px solid black;"/>
+</p>
+
+### Autoresonancia
+
+Para medir la autoresonancia del inductor, barrer en frecuencia y buscar el punto donde la fase (_Z phase_) pega un salto. 
+
+<p align="center" width="100%">
+<img alt="Foto: midiendo autoresonancia de inductor" src="fotos/autoresonancia.jpg" width="80%" style="border: 1px solid black;"/>
+</p>
 
 ### Haciéndolo resonar con un capacitor conocido
 En un _fixture_, conectar el inductor en serie con un capacitor de valor conocido y buscar la frecuencia de resonancia $f_r$ en S11. Esta se obtiene buscando el mínimo de la magnitud de S11, o el punto donde la fase (_Z phase_) cruza por cero.
@@ -47,6 +63,10 @@ $$L=\frac{1}{(2\pi f_r)^2C}$$
 <img alt="Esquema CircuitikZ: resonador LC serie medido en S11" src="diagramas/rendered/resonador-serie.svg" width="50%"/>
 </p>
 
+<p align="center" width="100%">
+<img alt="Foto: midiendo resonador LC" src="fotos/lc-resonancia.jpg" width="80%" style="border: 1px solid black;"/>
+</p>
+
 Se puede hacer lo mismo pero con los componentes en paralelo, y encontrar el punto de máxima magnitud de S11, o cuando cruza 180º. Medir en paralelo no es tan preciso como en serie.
 
 ## Capacitores
@@ -57,6 +77,10 @@ $$C=\frac{1}{2\pi fX}$$
 
 La mayoría de los equipos ya muestran el valor de $C$ directamente. La resistencia serie equivalente puede obtenerse aproximadamente de $R$.
 
+<p align="center" width="100%">
+<img alt="Foto: midiendo capacitor" src="fotos/c-directo.jpg" width="80%" style="border: 1px solid black;"/>
+</p>
+
 ### Haciéndolo resonar con un inductor conocido
 Al igual que el caso del inductor, se puede armar un circuito resonante con un inductor conocido y buscar la frecuencia de resonancia $f_r$ en S11. Entonces:
 
@@ -65,6 +89,10 @@ $$C=\frac{1}{(2\pi f_r)^2L}$$
 ## Stubs abiertos/cerrados
 ### Usando S11 
 Conectar el stub al puerto 1 y barrer varias resonancias. Un abierto y un corto ideal reflejan casi toda la señal, un abierto se ve como corto de entrada cerca de $\lambda/4$, mientras que un corto se ve como abierto. El patrón se repite cada $\lambda/2$. La separación entre resonancias equivalentes es aproximadamente $\Delta f=v_p/(2l)$. De esta forma, sabiendo el largo físico del stub y midiendo $\Delta f$, se puede estimar la velocidad de propagación $v_p$.
+
+<p align="center" width="100%">
+<img alt="Foto: midiendo impedancia de entrada" src="fotos/stub.jpg" width="80%" style="border: 1px solid black;"/>
+</p>
 
 ### Insertándolo como elemento de un circuito y midiendo S21
 Conectar el stub en paralelo o serie entre los puertos. De esta forma se puede medir su comportamiento como filtro, ver la frecuencia central y el ancho de banda.
@@ -84,6 +112,10 @@ Esto permite ver la impedancia de la antena a distintas frecuencias, y la ROE en
 Recordar siempre realizar la medición con la antena en su posición de uso y lejos de personas, paredes y objetos conductores.
 
 Una ROE baja no demuestra que la antena radie bien: puede haber pérdidas en la antena y la línea de alimentación, y que no se ven en S11. El cable y el entorno pueden modificar notablemente el resultado.
+
+<p align="center" width="100%">
+<img alt="Foto: midiendo antena con nanovna" src="fotos/antena.jpg" width="80%" style="border: 1px solid black;"/>
+</p>
 
 ### Midiendo S21 contra una antena de referencia
 Ubicar una antena de referencia y la antena bajo prueba en campo lejano, con distancia, polarización y orientación controladas. Medir S21 en un rango de frecuencias y repetir el ensayo reemplazando la antena bajo prueba por otra antena de referencia. Con las mismas condiciones de enlace, la diferencia entre ambas mediciones permite comparar ambas ganancias. 
@@ -113,12 +145,20 @@ Conectar la entrada y salida del filtro a los dos puertos, calibrados en los pla
 <img alt="Esquema CircuitikZ: medición de transferencia S21 de un filtro" src="diagramas/rendered/s21-filtro.svg" width="50%"/>
 </p>
 
+<p align="center" width="100%">
+<img alt="Foto: midiendo filtro" src="fotos/filtro.jpg" width="80%" style="border: 1px solid black;"/>
+</p>
+
 ### Midiendo S11 y S22 como complemento
 Medir la reflexión desde cada puerto mientras el otro está terminado en 50 $\Omega$. Una mala adaptación en la banda de paso explica parte de una S21 menor y permite ajustar las redes de adaptación de la entrada y salida.
 
 ## Cables (atenuación)
 ### Midiendo S21 de extremo a extremo
 Calibrar hasta los planos de conexión del cable y conectar cada extremo a un puerto. La pérdida de inserción es directamente $S_{21}$ en dB; al dividirla por la longitud física se obtiene la atenuación por metro a esa frecuencia.
+
+<p align="center" width="100%">
+<img alt="Foto: midiendo atenuación de cable" src="fotos/cable.jpg" width="80%" style="border: 1px solid black;"/>
+</p>
 
 ### Usando la reflexión de un abierto o corto
 Conectar un abierto o corto conocido en el extremo remoto y medir S11. Si la carga refleja aproximadamente el 100 % y se desprecia la desadaptación, el *return loss* observado corresponde a dos recorridos del cable, por lo que la atenuación de ida es aproximadamente $RL/2$ en dB.
