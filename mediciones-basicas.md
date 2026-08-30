@@ -2,6 +2,18 @@
 
 [Volver al índice](README.md)
 
+## Resumen rápido
+
+| Quiero medir... | Medición | Conexión | Mirar en el VNA |
+|---|---|---|---|
+| [Adaptación, impedancia o ROE](#impedancia-de-entrada-de-un-equipofiltro) | S11 | Puerto 1 al dispositivo | Smith, impedancia, *return loss* o ROE |
+| [Inductor o capacitor](#inductores) | S11 | Puerto 1 y *fixture* corto | _L serie_ o _C serie_ |
+| [Resonancia, largo de un stub o velocidad de propagación](#stubs-abiertoscerrados) | S11 | Puerto 1 al stub | Resonancias y separación en frecuencia |
+| [Adaptación de una antena](#antenas) | S11 | Puerto 1 al punto de alimentación | ROE o *return loss* |
+| [Pérdida, ganancia o banda de un filtro](#transferencia-de-filtros-pasivos) | S21 | Un puerto en cada extremo | _LogMag_ en dB (ganancia o atenuación) |
+| [Atenuación de un cable](#cables-atenuación) | S21 | Un puerto en cada extremo | _LogMag_ en dB |
+| [Estado de un conector o adaptador](#conectores-y-adaptadores) | S11 y S21 | Entre ambos puertos | Reflexión y pérdida de inserción |
+
 ## Impedancia de entrada de un equipo/filtro
 
 Conectar el equipo o filtro al puerto 1 y medir S11 para el rango de frecuencias de interés. Usar el formato de impedancia o el diagrama de Smith para obtener la impedancia de entrada en función de la frecuencia.
@@ -117,7 +129,7 @@ Conectar un abierto o corto conocido en el extremo remoto y medir S11. Si la car
 
 ## Conectores y adaptadores
 ### Comparando S11 y S21 contra una referencia directa
-Calibrar sin incluir el conector o adaptador a caracterizar, luego agregarlo y medir S21 a través del adaptador y S11 desde cada lado. 
+Calibrar sin incluir el conector o adaptador a caracterizar, luego agregarlo y medir S21 a través del adaptador y S11. En los equipos que no soportan medir S22, se puede dar vuelta el dispositivo y medir S11 nuevamente. Esto permite ver la pérdida de inserción y la reflexión del conector o adaptador.
 
 <p align="center" width="100%">
 <img alt="Esquema CircuitikZ: conector o adaptador medido directamente en S21" src="diagramas/rendered/conector-s21.svg" width="50%"/>
