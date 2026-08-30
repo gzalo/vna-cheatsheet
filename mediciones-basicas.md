@@ -6,13 +6,13 @@
 
 | Quiero medir... | Medición | Conexión | Mirar en el VNA |
 |---|---|---|---|
-| [Adaptación, impedancia o ROE](#impedancia-de-entrada-de-un-equipofiltro) | S11 | Puerto 1 al dispositivo | Smith, impedancia, *return loss* o ROE |
-| [Inductor o capacitor](#inductores) | S11 | Puerto 1 y *fixture* corto | _L serie_ o _C serie_ |
+| [Adaptación, impedancia o ROE](#impedancia-de-entrada-de-un-equipofiltro) | S11 | Puerto 1 al dispositivo | Smith, \|Z\|, _LogMag_ o ROE/SWR |
+| [Inductor o capacitor](#inductores) | S11 | Puerto 1 y *fixture* corto | _Series L_ o _Series C_ |
 | [Resonancia, largo de un stub o velocidad de propagación](#stubs-abiertoscerrados) | S11 | Puerto 1 al stub | Resonancias y separación en frecuencia |
-| [Adaptación de una antena](#antenas) | S11 | Puerto 1 al punto de alimentación | ROE o *return loss* |
+| [Adaptación de una antena](#antenas) | S11 | Puerto 1 al punto de alimentación | ROE/SWR o _return loss_ |
 | [Pérdida, ganancia o banda de un filtro](#transferencia-de-filtros-pasivos) | S21 | Un puerto en cada extremo | _LogMag_ en dB (ganancia o atenuación) |
 | [Atenuación de un cable](#cables-atenuación) | S21 | Un puerto en cada extremo | _LogMag_ en dB |
-| [Estado de un conector o adaptador](#conectores-y-adaptadores) | S11 y S21 | Entre ambos puertos | Reflexión y pérdida de inserción |
+| [Estado de un conector o adaptador](#conectores-y-adaptadores) | S11 y S21 | Entre ambos puertos | _LogMag_ (pérdidas de inserción y retorno) |
 
 ## Impedancia de entrada de un equipo/filtro
 
@@ -38,7 +38,7 @@ Conectar el inductor al puerto 1 usando un _fixture_ (puede ser un PCB con un co
 
 $$L=\frac{X}{2\pi f}$$
 
-La mayoría de los equipos ya muestran el valor de $L$ directamente. La parte real $R$ permite estimar las pérdidas del inductor y, también aproximar $Q \approx X/R$.
+La mayoría de los equipos ya muestran el valor de $L$ directamente al usar el modo _Series L_. La parte real $R$ permite estimar las pérdidas del inductor y, también aproximar $Q \approx X/R$.
 
 <p align="center" width="100%">
 <img alt="Foto: midiendo inductor" src="fotos/l-directo.jpg" width="80%" style="border: 1px solid black;"/>
@@ -75,7 +75,7 @@ Conectar el capacitor con un _fixture_ corto. En la región capacitiva, en una f
 
 $$C=\frac{1}{2\pi fX}$$
 
-La mayoría de los equipos ya muestran el valor de $C$ directamente. La resistencia serie equivalente puede obtenerse aproximadamente de $R$.
+La mayoría de los equipos ya muestran el valor de $C$ directamente al usar el formato _Series C_. La resistencia serie equivalente puede obtenerse aproximadamente de $R$.
 
 <p align="center" width="100%">
 <img alt="Foto: midiendo capacitor" src="fotos/c-directo.jpg" width="80%" style="border: 1px solid black;"/>
